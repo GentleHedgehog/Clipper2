@@ -31,7 +31,7 @@ if(NOT TARGET Clipper2Lib)
     option(BUILD_SHARED_LIBS "Build shared libs" OFF)
     set(CLIPPER2_USINGZ "ON" CACHE STRING "Build Clipper2Z, either \"ON\" or \"OFF\" or \"ONLY\"")
 
-    set(CLIPPER2_INC_FOLDER ${PROJECT_SOURCE_DIR}/Clipper2Lib/include/clipper2)
+    set(CLIPPER2_INC_FOLDER ${CMAKE_CURRENT_LIST_DIR}/Clipper2Lib/include/clipper2)
 
 
     set(CLIPPER2_INC
@@ -46,9 +46,9 @@ if(NOT TARGET Clipper2Lib)
     )
 
     set(CLIPPER2_SRC
-      Clipper2Lib/src/clipper.engine.cpp
-      Clipper2Lib/src/clipper.offset.cpp
-      Clipper2Lib/src/clipper.rectclip.cpp
+      ${CMAKE_CURRENT_LIST_DIR}/Clipper2Lib/src/clipper.engine.cpp
+      ${CMAKE_CURRENT_LIST_DIR}/Clipper2Lib/src/clipper.offset.cpp
+      ${CMAKE_CURRENT_LIST_DIR}/Clipper2Lib/src/clipper.rectclip.cpp
     )
 
     set(CLIPPER2_LIBS "") # one or both of Clipper2/Clipper2Z
@@ -66,7 +66,7 @@ if(NOT TARGET Clipper2Lib)
 
       target_include_directories(
         Clipper2 PUBLIC
-          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Clipper2Lib/include>
+          $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Clipper2Lib/include>
           $<INSTALL_INTERFACE:include>
       )
 
@@ -91,7 +91,7 @@ if(NOT TARGET Clipper2Lib)
       )
       target_include_directories(
         Clipper2Z PUBLIC
-          $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Clipper2Lib/include>
+          $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/Clipper2Lib/include>
           $<INSTALL_INTERFACE:include>
       )
 
